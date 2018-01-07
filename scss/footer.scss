@@ -1,0 +1,14 @@
+$footer-height: 40px;
+
+footer {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   height: $footer-height; /* Set the fixed height of the footer */
+   line-height: $footer-height; /* Vertically center the text */
+
+   li + li::before {
+      color: #999;
+      content: " | ";
+   }
+}

@@ -1,0 +1,44 @@
+.ReactTable {
+   border: none;
+   font-size: 85%;
+
+   .rt-thead {
+      .rt-th {
+         background: #f7f7f7;
+         color: #4a4a4a;
+         padding: 1em 0;
+         text-transform: uppercase;
+         //text-align: right;
+      }
+
+      &.-header {
+         box-shadow: none;
+         font-weight: 600;
+      }
+   }
+
+   .rt-tbody .rt-td {
+      border: none;
+   }
+
+   .rt-tr-group {
+      padding: 0.5em 0;
+   }
+
+   .-pagination {
+      box-shadow: none;
+      border-top: none;
+      padding-top: 0.5em;
+
+      .-btn {
+         background: none;
+         color: #025aa5;
+         text-transform: uppercase;
+      }
+
+      .-btn:not([disabled]):hover {
+         background: none;
+         color: #014c8c;
+      }
+   }
+}

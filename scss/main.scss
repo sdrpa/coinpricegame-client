@@ -1,0 +1,25 @@
+@import './react-table.scss';
+@import './colors.scss';
+@import './footer.scss';
+
+.container-flow {
+   background: #fefefe;
+   padding: 1em 2em;
+}
+
+section {
+   margin: 3em 0;
+}
+
+article {
+   margin: 2em 0;
+}
+
+h5 {
+   letter-spacing: 0.02em;
+}
+
+.collapsible {
+   background: #fafafa;
+   padding: 1em;
+}
