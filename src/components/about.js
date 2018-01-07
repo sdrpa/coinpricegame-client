@@ -35,7 +35,7 @@ const About = () => {
          </article>
          <article>
             <h4>Technology</h4>
-            <p>The source code is available at <a href={config.github}>GitHub</a>.<br />
+            <p>The source code is available at GitHub: <a href={config.github1}>server app</a>, <a href={config.github2}>client app</a>.<br />
                Back-end is written in <a href="https://swift.org">Swift</a> using <a href="http://www.kitura.io">Kitura</a> and <a href="https://postgresql.org">PostgreSQL</a>. Front-end is built with <a href="https://reactjs.org">React</a>.<br />
                If you want to contribute, feel free to send a pull request.
             </p>
