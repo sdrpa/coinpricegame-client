@@ -8,7 +8,7 @@ const Footer = () => {
    return (
       <footer>
          <ul className="list-unstyled">
-            <li className="list-inline-item">Copyright © 2018 {coinpricegame}</li>
+            <li className="list-inline-item">Copyright &copy; 2018 {coinpricegame}</li>
             <li className="list-inline-item"><Link to="/privacy">privacy</Link></li>
             <li className="list-inline-item"><Link to="/about">about</Link></li>
             <li className="list-inline-item"><a href={`mailto:${config.support}?subject=Coinpricegame support`}>support</a></li>
