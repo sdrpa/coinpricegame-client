@@ -33,8 +33,8 @@ class Predictions extends Component {
          }
          return (
             <div>
-               <Graph predictions={predictions} />
                <Table predictions={predictions} />
+               <Graph predictions={predictions} />
             </div>
          )
       }
