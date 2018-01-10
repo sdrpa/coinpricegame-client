@@ -34,7 +34,7 @@ class Price extends Component {
          }
       }
       if (!last) {
-         return <div>Connecting...</div>
+         return <div />
       }
       const formatter = new Intl.NumberFormat('en-US', {
          style: 'currency',
