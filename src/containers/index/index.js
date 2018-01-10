@@ -4,6 +4,7 @@ import { dates } from '../api'
 import { logError } from '../fn'
 import Question from '../question'
 import Howto from '../../components/howto'
+import Countdown from '../../components/countdown-timer'
 import Predict from '../prediction-submit'
 import Rules from '../../components/rules'
 import Closest from '../../containers/predictions-closest'
@@ -36,6 +37,11 @@ class Index extends Component {
          <div>
             <h2 className="mb-4">Lisk Price Prediction Challenge</h2>
             <Question endDate={dates.end} />
+            <p>
+               <Countdown 
+                  date={new Date(dates.due * 1000)} 
+                  zeroPadLength={0} /> until submissions are closed.
+            </p>
             <Rules />
             {(currEpoch > dates.due && currEpoch < dates.end) ? <div /> : <Howto />}
             <Predict dates={dates} />

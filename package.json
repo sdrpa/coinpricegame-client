@@ -12,6 +12,10 @@
       "presets": [
          "env",
          "react"
+      ],
+      "plugins": [
+         "transform-object-rest-spread",
+         "transform-runtime"
       ]
    },
    "devDependencies": {
