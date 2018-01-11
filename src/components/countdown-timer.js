@@ -52,6 +52,10 @@ export const getTimeDifference = (
    }
 }
 
+const pluralize = (count, noun, suffix = 's') => {
+   return `${count} ${noun}${parseInt(count) !== 1 ? suffix : ''}`
+}
+
 /**
  * A customizable countdown component for React.
  *
@@ -169,8 +173,10 @@ export default class Countdown extends React.Component {
          const { days, hours, minutes, seconds } = this.getFormattedDelta()
          return (
             <span>
-               {days != null ? `${days} days` : ''}&nbsp;
-               {hours} hours {`${minutes} minutes`} {`${seconds} seconds`}
+               {days != null ? pluralize(days, 'day') : ''}&nbsp;
+               {pluralize(hours, 'hour')}&nbsp;
+               {pluralize(minutes, 'minute')}&nbsp;
+               {pluralize(seconds, 'second')}
             </span>
          )
       }
