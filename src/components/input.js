@@ -17,7 +17,7 @@ const Input = (field) => {
       if (!field.label) {
          return
       }
-      return <label>{field.label}</label>
+      return field.label
    }
    
    return (

@@ -35,16 +35,18 @@ class Index extends Component {
       const currEpoch = new Date().getTime() / 1000
       return (
          <div>
-            <h2 className="mb-4">Lisk Price Prediction Challenge</h2>
+            <h2 className="mb-5">Lisk Price Prediction Challenge</h2>
             <Question endDate={dates.end} />
-            <p>
+            <Rules />
+            {(currEpoch > dates.due && currEpoch < dates.end) 
+               ? <div /> 
+               : <Howto />}
+            <Predict dates={dates} />
+            <p className="mb-5">
                <Countdown 
                   date={new Date(dates.due * 1000)} 
-                  zeroPadLength={0} /> until submissions are closed.
+                  zeroPadLength={0} /> until this week&apos;s submissions are closed.
             </p>
-            <Rules />
-            {(currEpoch > dates.due && currEpoch < dates.end) ? <div /> : <Howto />}
-            <Predict dates={dates} />
             <Closest />
             <GraphAndTable />
          </div>

@@ -63,7 +63,12 @@ class Predict extends Component {
          return (            
             <form onSubmit={handleSubmit(this.formDidSubmit.bind(this))}>
                <Field
-                  label="Price (in USD)"
+                  label={
+                     <div>
+                        <span>Price (in USD)</span>
+                        <span className="float-right"><Price /></span>
+                     </div>
+                  }
                   name="price"
                   isRequired={true}
                   type="text"
@@ -89,11 +94,8 @@ class Predict extends Component {
       }
 
       return (
-         <section className="mt-4">
-            <div className="clearfix">
-               <span className="float-right"><Price /></span>
-            </div>
-            <div className="pb-3">
+         <section className="mt-5 mb-1">
+            <div className="pb-4">
                {(currEpoch > dates.due && currEpoch < dates.end) 
                   ? renderDisabled(dates.due, dates.end)
                   : renderForm()
