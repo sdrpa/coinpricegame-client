@@ -53,7 +53,7 @@ export const getTimeDifference = (
 }
 
 const pluralize = (count, noun, suffix = 's') => {
-   return `${count} ${noun}${parseInt(count) !== 1 ? suffix : ''}`
+   return `${count} ${noun}${count !== 1 ? suffix : ''}`
 }
 
 /**
@@ -171,12 +171,46 @@ export default class Countdown extends React.Component {
          })
       } else {
          const { days, hours, minutes, seconds } = this.getFormattedDelta()
+         const daysInt = parseInt(days)
+         const hoursInt = parseInt(hours)
+         const minutesInt = parseInt(minutes)
+         const secondsInt = parseInt(seconds)
+
+         const optionalHours = (days, hours) => {
+            if (days === 0 && hours === 0) {
+               return null
+            }
+            return hours
+         }
+         const optionalMinutes = (days, hours, minutes) => {
+            if (days === 0 && hours === 0 && minutes === 0) {
+               return null
+            }
+            return minutes
+         }
+         const optionalSeconds = (days, hours, minutes, seconds) => {
+            if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+               return null
+            }
+            return seconds
+         }
+         const renderText = () => {
+            if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+               return <span />
+            }
+            return <span>until this week&apos;s submissions are closed.</span>
+         }
+         const d = days
+         const h = optionalHours(daysInt, hoursInt)
+         const m = optionalMinutes(daysInt, hoursInt, minutesInt)
+         const s = optionalSeconds(daysInt, hoursInt, minutesInt, secondsInt)
+
          return (
             <span>
-               {days != null ? pluralize(days, 'day') : ''}&nbsp;
-               {pluralize(hours, 'hour')}&nbsp;
-               {pluralize(minutes, 'minute')}&nbsp;
-               {pluralize(seconds, 'second')}
+               {d ? `${pluralize(d, 'day')} ` : ''}
+               {h ? `${pluralize(h, 'hour')} ` : ''}
+               {m ? `${pluralize(m, 'minute')} ` : ''}
+               {s ? `${pluralize(s, 'second')} ` : ''} {renderText()}
             </span>
          )
       }

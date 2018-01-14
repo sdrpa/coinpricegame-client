@@ -4,6 +4,7 @@ import { dates } from '../api'
 import { logError } from '../fn'
 import Question from '../question'
 import Howto from '../../components/howto'
+import Price from '../price'
 import Countdown from '../../components/countdown-timer'
 import Predict from '../prediction-submit'
 import Rules from '../../components/rules'
@@ -31,22 +32,31 @@ class Index extends Component {
       if (!dates) {
          return <p>Loading...</p>
       }
-
       const currEpoch = new Date().getTime() / 1000
+
+      const renderCountdown = () => {
+         return (
+            <p className="mb-5">
+               <Countdown 
+                  date={new Date(dates.due * 1000)} 
+                  zeroPadLength={0} />
+            </p>
+         )
+      }
+
       return (
          <div>
             <h2 className="mb-5">Lisk Price Prediction Challenge</h2>
             <Question endDate={dates.end} />
-            <Rules />
-            {(currEpoch > dates.due && currEpoch < dates.end) 
-               ? <div /> 
-               : <Howto />}
+            <div className="mb-5">
+               <Rules />
+               {(currEpoch > dates.due && currEpoch < dates.end) 
+                  ? <div /> 
+                  : <Howto />}
+            </div>
+            <Price />
             <Predict dates={dates} />
-            <p className="mb-5">
-               <Countdown 
-                  date={new Date(dates.due * 1000)} 
-                  zeroPadLength={0} /> until this week&apos;s submissions are closed.
-            </p>
+            {renderCountdown()}
             <Closest />
             <GraphAndTable />
          </div>

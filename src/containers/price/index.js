@@ -42,10 +42,10 @@ class Price extends Component {
          minimumFractionDigits: 4,
       })
       return (
-         <span>
+         <div>
             Current Price: <strong className={classFor(trend)}>{formatter.format(last)}</strong>
             <small> *source <a href="https://bittrex.com/Market/Index?MarketName=BTC-LSK">Bittrex</a></small>
-         </span>
+         </div>
       )
    }
 }

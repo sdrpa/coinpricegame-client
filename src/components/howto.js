@@ -17,7 +17,7 @@ const Howto = () => {
                      </span>
                   </li>
                   <li>Copy transaction ID of the transaction from Lisk Nano. { /* Alternatively, use <a href="https://explorer.lisk.io/">Blockchain explorer</a> to find the transaction ID. */ }</li>
-                  <li>Enter a price prediction in USD and the transaction ID in the form below and click &apos;Submit Prediction&apos; button.</li>
+                  <li>Enter a prediction in USD and the transaction ID in the form below and click &apos;Submit Prediction&apos; button.</li>
                </ol>
                <p className="pl-4 text-muted">The form will check as you type that the price has not been taken by another participant.
                </p>

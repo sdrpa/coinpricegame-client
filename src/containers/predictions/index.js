@@ -29,7 +29,11 @@ class Predictions extends Component {
          return <div>Loading...</div>
       } else {
          if (predictions.length === 0) {
-            return <div>There are no predictions to show. Be the first one to make a prediction.</div>
+            return (
+               <div className="mb-5">
+                  <h4>There are no predictions to show. Be the first one to make a prediction!</h4>
+               </div>
+            )
          }
          return (
             <div>

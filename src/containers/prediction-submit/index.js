@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 
 import { submitPrediction }  from '../predictions/actions'
 import { validate, asyncValidate } from './validate'
-import Price from '../price'
 import Input from '../../components/input'
 import ProgressIndicator from '../../components/progress-indicator'
 
@@ -63,12 +62,7 @@ class Predict extends Component {
          return (            
             <form onSubmit={handleSubmit(this.formDidSubmit.bind(this))}>
                <Field
-                  label={
-                     <div>
-                        <span>Price (in USD)</span>
-                        <span className="float-right"><Price /></span>
-                     </div>
-                  }
+                  label="Enter your prediction (in USD)"
                   name="price"
                   isRequired={true}
                   type="text"
@@ -94,7 +88,7 @@ class Predict extends Component {
       }
 
       return (
-         <section className="mt-5 mb-1">
+         <section className="mt-2 mb-1">
             <div className="pb-4">
                {(currEpoch > dates.due && currEpoch < dates.end) 
                   ? renderDisabled(dates.due, dates.end)
